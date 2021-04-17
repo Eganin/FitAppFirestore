@@ -1,4 +1,4 @@
-import 'package:firestore_test/pages/home_page.dart';
+import 'package:firestore_test/ui/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
