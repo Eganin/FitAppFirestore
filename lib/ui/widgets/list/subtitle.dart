@@ -17,7 +17,7 @@ Widget subtitle({BuildContext context, Workout data}) {
       indicatorLevel = 0.66;
       break;
 
-    case 'ADVANCED':
+    case 'Advanced':
       color = Colors.red;
       indicatorLevel = 0.99;
       break;
