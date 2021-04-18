@@ -60,7 +60,6 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
           ),
           clipper: BottomWaveClipper(),
         ),
-        alignment: Alignment.bottomCenter,
       ),
     );
   }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "511847927957",
+    "project_id": "maxfitapp-ad135",
+    "storage_bucket": "maxfitapp-ad135.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511847927957:android:c70f4682b8fa3113e0cb9c",
+        "android_client_info": {
+          "package_name": "com.example.firestore_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511847927957-rclvi8c5hnbuvclcl6bpe8vsqcen4aka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU9CS7jmI8xQHBP_K33kcGsQpRiVNFxWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511847927957-rclvi8c5hnbuvclcl6bpe8vsqcen4aka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
