@@ -1,5 +1,3 @@
-import 'package:firestore_test/ui/pages/auth.dart';
-import 'package:firestore_test/ui/pages/home_page.dart';
 import 'package:firestore_test/ui/pages/landing.dart';
 import 'package:flutter/material.dart';
 

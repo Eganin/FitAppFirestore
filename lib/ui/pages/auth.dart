@@ -1,6 +1,9 @@
+import 'package:firestore_test/domain/user.dart';
+import 'package:firestore_test/services/auth.dart';
 import 'package:firestore_test/ui/widgets/auth/logo.dart';
 import 'package:firestore_test/ui/widgets/auth/wave_clipper.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AuthorizationPage extends StatefulWidget {
   @override
@@ -15,6 +18,8 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
   String _password;
   bool showLogin = true;
 
+  AuthService _authService = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,18 +27,20 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
       body: Column(
         children: [
           logo(),
-          SizedBox(height: 80,),
+          SizedBox(
+            height: 80,
+          ),
           showLogin
               ? _form(
                   context: context,
                   label: 'Login',
-                  onClick: _buttonAction,
+                  onClick: _loginButtonAction,
                   textAuthorization: 'Not registered yet? Register!',
                 )
               : _form(
                   context: context,
                   label: 'Registered',
-                  onClick: _buttonAction,
+                  onClick: _registerButtonAction,
                   textAuthorization: 'Already registered? Login!',
                 ),
           _bottomWave(),
@@ -42,12 +49,70 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
     );
   }
 
-  void _buttonAction() {
+  void _loginButtonAction() async {
+    print('_________');
+    Fluttertoast.showToast(
+      msg: "YES",
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.CENTER,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
     _email = _emailController.text;
     _password = _passwordController.text;
 
-    _emailController.clear();
-    _passwordController.clear();
+    if (_email.isEmpty || _password.isEmpty) return;
+
+    UserApp user = await _authService.signInWithEmailAndPassword(
+        email: _email, password: _password);
+    if (user == null) {
+      Fluttertoast.showToast(
+        msg: "Can't sing in you! Please check your password/email",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+    } else {
+      _emailController.clear();
+      _passwordController.clear();
+    }
+  }
+
+  void _registerButtonAction() async {
+    print('___________________');
+    Fluttertoast.showToast(
+      msg: "YES",
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.CENTER,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
+    _email = _emailController.text;
+    _password = _passwordController.text;
+
+    if (_email.isEmpty || _password.isEmpty) return;
+
+    UserApp user = await _authService.registerWithEmailAndPassword(
+        email: _email, password: _password);
+    if (user == null) {
+      Fluttertoast.showToast(
+        msg: "Can't register in you! Please check your password/email",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+    } else {
+      _emailController.clear();
+      _passwordController.clear();
+    }
   }
 
   Widget _bottomWave() {

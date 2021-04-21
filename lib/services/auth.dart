@@ -4,25 +4,25 @@ import 'package:firestore_test/domain/user.dart';
 class AuthService {
   final FirebaseAuth _fAuth = FirebaseAuth.instance;
 
-  Future<User> signInWithEmailAndPassword(
+  Future<UserApp> signInWithEmailAndPassword(
       {String email, String password}) async {
     try {
-      AuthResult result = await _fAuth.signInWithEmailAndPassword(
+      UserCredential result = await _fAuth.signInWithEmailAndPassword(
           email: email, password: password);
-      FirebaseUser user = result.user;
-      return User.fromFirebase(user);
+      User user = result.user;
+      return UserApp.fromFirebase(user);
     } catch (e) {
       return null;
     }
   }
 
-  Future<User> registerWithEmailAndPassword(
+  Future<UserApp> registerWithEmailAndPassword(
       {String email, String password}) async {
     try {
-      AuthResult result = await _fAuth.createUserWithEmailAndPassword(
+      UserCredential result = await _fAuth.createUserWithEmailAndPassword(
           email: email, password: password);
-      FirebaseUser user = result.user;
-      return User.fromFirebase(user);
+      User user = result.user;
+      return UserApp.fromFirebase(user);
     } catch (e) {
       return null;
     }
@@ -30,9 +30,9 @@ class AuthService {
 
   Future logOut() async => await _fAuth.signOut();
 
-  Stream<User> get currentUser {
-    return _fAuth.onAuthStateChanged.map(
-      (FirebaseUser user) => user != null ? User.fromFirebase(user) : null,
+  Stream<UserApp> get currentUser {
+    return _fAuth.authStateChanges().map(
+      (User user) => user != null ? UserApp.fromFirebase(user) : null,
     );
   }
 }

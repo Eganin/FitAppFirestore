@@ -8,7 +8,7 @@ Widget logo() {
       child: Align(
         alignment: Alignment.center,
         child: Text(
-          'MaxFit',
+          'Fit',
           style: TextStyle(
             fontSize: 45,
             fontWeight: FontWeight.bold,
