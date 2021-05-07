@@ -50,22 +50,15 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
   }
 
   void _loginButtonAction() async {
-    print('_________');
-    Fluttertoast.showToast(
-      msg: "YES",
-      toastLength: Toast.LENGTH_LONG,
-      gravity: ToastGravity.CENTER,
-      backgroundColor: Colors.red,
-      textColor: Colors.white,
-      fontSize: 16.0,
-    );
     _email = _emailController.text;
     _password = _passwordController.text;
 
     if (_email.isEmpty || _password.isEmpty) return;
 
     UserApp user = await _authService.signInWithEmailAndPassword(
-        email: _email, password: _password);
+      email: _email.trim(),
+      password: _password.trim(),
+    );
     if (user == null) {
       Fluttertoast.showToast(
         msg: "Can't sing in you! Please check your password/email",
@@ -83,22 +76,15 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
   }
 
   void _registerButtonAction() async {
-    print('___________________');
-    Fluttertoast.showToast(
-      msg: "YES",
-      toastLength: Toast.LENGTH_LONG,
-      gravity: ToastGravity.CENTER,
-      backgroundColor: Colors.red,
-      textColor: Colors.white,
-      fontSize: 16.0,
-    );
     _email = _emailController.text;
     _password = _passwordController.text;
 
     if (_email.isEmpty || _password.isEmpty) return;
 
     UserApp user = await _authService.registerWithEmailAndPassword(
-        email: _email, password: _password);
+      email: _email.trim(),
+      password: _password.trim(),
+    );
     if (user == null) {
       Fluttertoast.showToast(
         msg: "Can't register in you! Please check your password/email",

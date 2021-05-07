@@ -28,7 +28,7 @@ class WorkoutList extends StatelessWidget {
       itemBuilder: (context, index) {
         return Card(
           elevation: 2.0,
-          margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 4),
+          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
           child: Container(
             decoration: BoxDecoration(
               color: Color.fromRGBO(

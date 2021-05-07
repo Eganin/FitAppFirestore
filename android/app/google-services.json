@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "511847927957",
-    "project_id": "maxfitapp-ad135",
-    "storage_bucket": "maxfitapp-ad135.appspot.com"
+    "project_number": "266945569125",
+    "project_id": "fitapp-ed34a",
+    "storage_bucket": "fitapp-ed34a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:511847927957:android:c70f4682b8fa3113e0cb9c",
+        "mobilesdk_app_id": "1:266945569125:android:c7f58f175acfaba801c18c",
         "android_client_info": {
-          "package_name": "com.example.firestore_test"
+          "package_name": "com.fitapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "511847927957-rclvi8c5hnbuvclcl6bpe8vsqcen4aka.apps.googleusercontent.com",
+          "client_id": "266945569125-ng7mvlkj67vadgk0pvprat70hfaf6r1f.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCU9CS7jmI8xQHBP_K33kcGsQpRiVNFxWo"
+          "current_key": "AIzaSyCctjbkX-Ecjq0xN8Dx4Ib7EwbBaL_qZ64"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "511847927957-rclvi8c5hnbuvclcl6bpe8vsqcen4aka.apps.googleusercontent.com",
+              "client_id": "266945569125-ng7mvlkj67vadgk0pvprat70hfaf6r1f.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

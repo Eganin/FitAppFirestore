@@ -7,11 +7,12 @@ class AuthService {
   Future<UserApp> signInWithEmailAndPassword(
       {String email, String password}) async {
     try {
-      UserCredential result = await _fAuth.signInWithEmailAndPassword(
+      AuthResult result = await _fAuth.signInWithEmailAndPassword(
           email: email, password: password);
-      User user = result.user;
+      FirebaseUser user = result.user;
       return UserApp.fromFirebase(user);
     } catch (e) {
+      print(e);
       return null;
     }
   }
@@ -19,11 +20,14 @@ class AuthService {
   Future<UserApp> registerWithEmailAndPassword(
       {String email, String password}) async {
     try {
-      UserCredential result = await _fAuth.createUserWithEmailAndPassword(
-          email: email, password: password);
-      User user = result.user;
+      AuthResult result = await _fAuth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      FirebaseUser user = result.user;
       return UserApp.fromFirebase(user);
     } catch (e) {
+      print(e);
       return null;
     }
   }
@@ -31,8 +35,8 @@ class AuthService {
   Future logOut() async => await _fAuth.signOut();
 
   Stream<UserApp> get currentUser {
-    return _fAuth.authStateChanges().map(
-      (User user) => user != null ? UserApp.fromFirebase(user) : null,
+    return _fAuth.onAuthStateChanged.map(
+      (FirebaseUser user) => user != null ? UserApp.fromFirebase(user) : null,
     );
   }
 }
